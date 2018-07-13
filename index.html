@@ -21,6 +21,8 @@
              </label>
         </p>
 
+        <input onkeypress="change()">
+
         <p>
             <textarea>Default content</textarea>
         </p>
@@ -34,14 +36,26 @@
         </p>
 
         <p>
-            <button>Click me</button>
+            <button onclick="count()">Click me</button>
         </p>
 
     </main>
     <script>
-        //this is a comment to show branch
-        for(var i = 0; i < 10; i++)
-            console.log(i + 1)
+        
+        function count() {
+            for(var i = 0; i < 10; i++)
+            console.log(i + 1);
+        }
+
+        if (confirm('Run count?')) {
+            count();
+        }
+
+        function change() {
+            console.log("A change happened")
+        }
+        
+        
     </script>
 </body>
 </html>
