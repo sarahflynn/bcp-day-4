@@ -9,51 +9,86 @@
 <body>
     <h1>Just an App</h1>
     <main>
+        
+        </p>
+            <label> Name: 
+            <input id="name">
+            </label>
+        </p>
+        
+        <p>Do you like chocolate?</p>
         <p>
             <label>
-                <input name="power" type="radio">Yes
+                <input name="power" type="radio" value="yes">Yes
             </label>
+            <br>
             <label>
-                <input name="power" type="radio">No
+                <input name="power" type="radio" value="favorite">It's my favorite food
             </label>
+            <br>
             <label>
-                <input name="power" type="radio">Maybe so
+                <input name="power" type="radio" value="only">I only eat chocolate
              </label>
-        </p>
+        
 
-        <input onkeypress="change()">
-
-        <p>
-            <textarea>Default content</textarea>
-        </p>
-
+        <p>How do you feel about writing code?</p>
         <p>
             <select>
-                <option>red</option>
-                <option>green</option>
-                <option>blue</option>
+                <option value="like">I like it</option>
+                <option value="love">It's the most fun I've had all week</option>
+                <option value="obsessed">From now on, all I do is write code</option>
             </select>
         </p>
 
         <p>
-            <button onclick="count()">Click me</button>
+            <button onclick="showName()">Click me</button>
         </p>
+
+        <p id="result"></p>
+
+        <p id="result2"</p>
 
     </main>
     <script>
-        
-        function count() {
-            for(var i = 0; i < 10; i++)
-            console.log(i + 1);
+
+
+        function showName() {
+            var input = document.getElementById("name");
+            var name = input.value;
+            console.log(name);
+
+            var radio = document.querySelector('input[name=power]:checked');
+            radio = radio.value;
+            console.log(radio);
+
+            if (radio === "yes") {
+                var p = document.getElementById("result");
+                p.innerText = name + ", are you sure chocolate isn't your favorite food?";
+            } else if (radio === "favorite") {
+                var p = document.getElementById("result");
+                p.innerText = name + ", you have excellent taste. Chocolate is my favorite food too!";
+            } else if (radio === "only") {
+                var p = document.getElementById("result");
+                p.innerText = name + ", that is seriously not healthy. Chocolate is my favorite, but even I eat other foods sometimes.";
+            }   
+
+            var choice = document.querySelector('option:checked');
+            choice = choice.value;
+            console.log(choice);
+
+            if (choice === "like") {
+                var p = document.getElementById("result2");
+                p.innerText = "Also, if you only 'like' coding, why are you doing this crazy bootcamp thing?";
+            } else if (choice === "love") {
+                var p = document.getElementById("result2");
+                p.innerText = "Also, I'm underwhelmed by your enthusiasm for coding. Spend more time making cool things and then get back to me.";
+            } else if (choice === "obsessed") {
+                var p = document.getElementById("result2");
+                p.innerText = "Also, I love that you're obsessed with coding, but don't forget to sleep and eat too.";
+            }  
+
         }
 
-        if (confirm('Run count?')) {
-            count();
-        }
-
-        function change() {
-            console.log("A change happened")
-        }
         
         
     </script>
